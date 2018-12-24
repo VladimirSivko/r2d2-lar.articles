@@ -15,20 +15,20 @@
         Редактировать статью
     </div>
 
-    <form action="{{ url('admin/article/edit/{article}') }}" method="POST" class="form-horizontal">
+    <form action="{{ url('admin/article/save/'.$article->id) }}" method="POST" class="form-horizontal">
         {{ csrf_field() }}
 
         <!-- Имя статьи -->
         <div class="form-group">
             <br/>
             <div class="col-sm-6">
-                <input type="text" name="name" id="article-name" class="form-control" value="Edit name">
+                <input type="text" name="name" id="article-name" class="form-control" value="{{ $article->name }}">
             </div>
             <div class="col-sm-6">
-                <input type="text" name="short_text" id="article-short" class="form-control" value="Edit short_text">
+                <input type="text" name="short_text" id="article-short" class="form-control" value="{{ $article->short_text }}">
             </div>
             <div class="col-sm-6">
-                <textarea name="text" id="article-text" class="form-control">Edit text</textarea>
+                <textarea name="text" id="article-text" class="form-control">{{ $article->text }}</textarea>
             </div>
         </div>
 

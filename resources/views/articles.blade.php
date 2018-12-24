@@ -32,7 +32,7 @@
                 <tr>
                     <!-- Название статьи -->
                     <td class="table-text">
-                        <div><a href="r2d2.articles.local/admin">{{ $article->name }}</a></div>
+                        <div><a href="/admin">{{ $article->name }}</a></div>
                     </td>
                     <td class="table-text">
                         <div>{{ $article->short_text }}</div>
