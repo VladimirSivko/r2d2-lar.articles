@@ -83,3 +83,12 @@ Route::post('admin/article/save/{article}', function (Article $article, Request 
     $article->save();
     return redirect('admin/');
 });
+
+/**
+ * вывод статьи пользователю
+ */
+Route::get('article/{article}', function (Article $article) {
+    return view('text', [
+        'article' => $article
+    ]);
+});
