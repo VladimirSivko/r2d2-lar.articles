@@ -1,6 +1,7 @@
 <?php
 
 use App\Article;
+use App\Image;
 use Illuminate\Http\Request;
 
 /**
@@ -91,4 +92,29 @@ Route::get('article/{article}', function (Article $article) {
     return view('text', [
         'article' => $article
     ]);
+});
+/**
+ * форма загрузка изображений
+ */
+Route::get('admin/image', function () {
+    return view('image');
+});
+
+/**
+ * сохранение изображений
+ */
+Route::post('admin/image/save', function (Request $request) {
+    $image = new Image($request->except('img'));
+    if ($request->hasFile('img')) {
+	$file = $request->file('img');
+	$destinationPath = public_path() . '/house/uploads/';
+	$filename = str_random(20) . '.' . $file->getClientOriginalExtension() ?: 'png';
+	$image->img = $filename;
+	if ($request->hasFile('img')) {
+	    $request->file('img')->move($destinationPath, $filename);
+	}
+    }
+    $image->save();
+
+    return redirect()->route('admin/image');
 });
