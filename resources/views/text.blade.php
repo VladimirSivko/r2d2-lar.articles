@@ -12,7 +12,11 @@
 <!-- статьи -->
 <div class="panel panel-default">
     <div class="panel-heading">
-        Текст статьи
+        <h2>{{ $article->name }}</h2>
+    </div>
+    <br/>
+    <div class="panel-body">
+        {{ $article->created_at }}
     </div>
     <br/>
     <div class="panel-body">

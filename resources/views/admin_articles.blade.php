@@ -14,15 +14,18 @@
 
         <!-- Имя статьи -->
         <div class="form-group">
-            <label for="article" class="col-sm-3 control-label">Статья</label>
+            <h4><label for="article" class="col-sm-3 control-label">Добавление статьи</label></h4>
 
             <div class="col-sm-6">
+		<h5><label for="article" class="col-sm-3 control-label">Название</label></h5>
                 <input type="text" name="name" id="article-name" class="form-control" placeholder="Введите название">
             </div>
             <div class="col-sm-6">
+		<h5><label for="article" class="col-sm-3 control-label">Короткий текст</label></h5>
                 <input type="text" name="short_text" id="article-short" class="form-control" placeholder="Введите короткий текст">
             </div>
             <div class="col-sm-6">
+		<h5><label for="article" class="col-sm-3 control-label">Текст</label></h5>
                 <textarea name="text" id="article-text" class="form-control" placeholder="Введите текст"></textarea>
             </div>
         </div>
@@ -78,6 +81,7 @@
                                 <i class="fa fa-trash"></i> Удалить статью
                             </button>
                         </form>
+			<br/>
                         <form action="{{ url('admin/article/edit/'.$article->id) }}" method="post">
                             {{csrf_field()}}
                             <button type="submit" class="btn btn-default">
